@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Setup MLH Code Sample",
+        "description": "Create a Python Flask app with multiple files and JSON persistence.",
+        "status": "pending"
+    },
+    {
+        "id": 2,
+        "title": "Write API Endpoints",
+        "description": "Implement GET, POST, PUT, DELETE for tasks.",
+        "status": "pending"
+    },
+    {
+        "id": 3,
+        "title": "Add Requirements File",
+        "description": "Include Flask in requirements.txt.",
+        "status": "pending"
+    }
+]
