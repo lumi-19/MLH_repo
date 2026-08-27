@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  shortlink-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./data/shortlink.db
+      - BASE_URL=http://localhost:8000
+      - SHORT_CODE_LENGTH=6
+      - CORS_ORIGINS=*
+    volumes:
+      # Persist the SQLite database outside the container
+      - shortlink-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  shortlink-data:
